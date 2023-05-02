@@ -1,7 +1,7 @@
 from flask import abort, flash, render_template, redirect, request, session, url_for
 
 from .models import db, User, Post, Comment
-from .forms import LoginForm,.CommentForm
+from .forms import LoginForm, CommentForm
 
 
 def index_page():
