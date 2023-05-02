@@ -12,22 +12,22 @@ def index_page():
 
 def post_page(post_id):
     post = db.get_or_404(Post, post_id)
-    # form = CommentForm()
-    # if request.method == "POST":
-          print(1)
-    #     if form.validate_on_submit():
+    form = CommentForm()
+    if request.method == "POST":
+    #     print(1)
+        if form.validate_on_submit():
     #         # Создать объект класса Comment
-              print(2)
-    #         comment = Comment
-              comment.guest = form.guestname.data
-              comment.text = form.text.data
-              comment.post = post 
-    #         db.session.add(comment)
-    #         db.session.commit()
-    #         form = CommentForm(formdata=None)
-         esle:
-              print
-    return render_template("post.html", post=post)
+    #         print(2)
+            comment = Comment()
+            comment.guest = form.guestname.data
+            comment.text = form.text.data
+            comment.post = post 
+            db.session.add(comment)
+            db.session.commit()
+            form = CommentForm(formdata=None)
+    #     esle:
+    #          print
+    return render_template("post.html", post=post, form=form)
 
 
 def login_page():
